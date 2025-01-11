@@ -355,7 +355,7 @@ img {
 }
 
 .filter__grayscale {
-  filter: grayscale(50%);
+  filter: grayscale(20%);
 }
 .filter__hue-rotate-saturate {
   filter: hue-rotate(150deg) saturate(156%);
