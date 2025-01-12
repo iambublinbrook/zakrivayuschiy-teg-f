@@ -14,7 +14,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 100px auto;
+  margin-block-start: 100px;
   font-family: var(--main-font);
   background-image: var(--bg-image);
   background-repeat: no-repeat;
@@ -115,7 +115,6 @@
     }
 }
 
-
 img {
   object-fit: cover;
   object-position: center;
@@ -154,7 +153,7 @@ img {
   border: none;
   padding: 0;
   background-color: transparent;
-  transition: border-color 0.3s ease;
+  transition: border 0.3s ease;
   cursor: pointer;
 }
 
@@ -164,8 +163,9 @@ img {
 
 .card__icon-button:focus-visible {
   height: 38px;
-  border: 2px solid var(--border-color, #000);
-  outline: none;
+  padding: 0;
+  outline: 2px solid var(--black, #000);
+  outline-offset: -2px;
 }
 
 .card__like-button {
@@ -184,20 +184,20 @@ img {
   align-items: center;
   border: 2px solid var(--accent-color);
   overflow: hidden;
-  color: var(--accent-color);
+  color: inherit;
   font-family: var(--accent-font);
   font-size: 14px;
-  transition: box-shadow 0.3s ease;
   cursor: pointer;
   appearance: none;
 }
 
 .button:focus {
+  box-shadow: none;
   outline: none;
 }
 
 .button:focus-visible {
-  box-shadow: 2px 2px 0 0 var(--accent-color);
+  box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 1);
 }
 
 .button::before {
@@ -208,22 +208,26 @@ img {
   font-family: var(--accent-font);
   background-color: var(--accent-color);
   transition: transform 0.5s ease-in-out;
+  transform: translateX(-100%);
   transform-origin: left;
-  scale: 0 1;
 }
 
 .button:hover::before {
-  scale: 1 1;
+  transform: translateX(0);
 }
 
 .button__text {
   position: relative;
   z-index: 2;
-  color: var( --bg-color);
   font-family: var(--accent-font);
   font-weight: var(--main-font-weight);
   font-size: 14px;
   line-height: 90%;
+  transition: color 0.5s ease-in-out;
+}
+
+.button:hover .button__text {
+  color: var(--bg-color);
   mix-blend-mode: difference;
 }
 
@@ -238,6 +242,7 @@ img {
   padding-inline: 19px;
   padding-block: 14px;
   text-align: center;
+  background-color: #fff;
   cursor: pointer;
   min-block-size: 55px;
   inline-size: 339px;
@@ -297,6 +302,7 @@ img {
   font-family: var(--accent-font);
   font-size: 14px;
   text-transform: uppercase;
+  background-color: var(--bg-color);
   inline-size: 100%;
   block-size: 38px;
 }
